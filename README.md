@@ -2,6 +2,9 @@
 
 A modern, responsive portfolio website built with React and Tailwind CSS, showcasing my skills, projects, and professional experience.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/abhirampaidimarri/deploys)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-green)](https://abhirampaidimarri.netlify.app/)
+
 ![Portfolio Preview](src/assets/portfolio_preview.png)
 
 ## 🌟 Features
@@ -113,3 +116,7 @@ Feel free to reach out for any questions or collaborations!
 ---
 
 Made with ❤️ by [Your Name]
+
+## 🌐 Live Demo
+
+Visit my portfolio at: [https://abhirampaidimarri.netlify.app/](https://abhirampaidimarri.netlify.app/)
