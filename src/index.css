@@ -1,13 +1,64 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-outfit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-space-grotesk;
+  }
+
+  code,
+  pre {
+    @apply font-fira-code;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .section-title {
+    @apply text-4xl font-bold text-light-primary dark:text-dark-primary mb-12 font-space-grotesk relative inline-block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-title::after {
+    content: "";
+    @apply absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-light-secondary to-light-highlight dark:from-dark-primary dark:to-dark-highlight rounded-full transform scale-x-0 transition-transform duration-300 ease-out;
+  }
+
+  .section-title:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Add a subtle glow effect in dark mode */
+  .dark .section-title {
+    text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+  }
+
+  .card {
+    @apply bg-light-card dark:bg-dark-card rounded-lg shadow-md p-6 border border-light-border dark:border-dark-border;
+  }
+
+  .btn-primary {
+    @apply bg-light-highlight dark:bg-dark-highlight text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-opacity;
+  }
+
+  .btn-secondary {
+    @apply bg-light-secondary dark:bg-dark-primary text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-opacity;
+  }
+
+  .text-muted {
+    @apply text-light-muted dark:text-dark-secondary;
+  }
 }
