@@ -5,31 +5,33 @@ import ScrollAnimation from "./ScrollAnimation";
 const Experience = () => {
   const experiences = [
     {
-      company: "CVS Health",
-      title: "AI Support Bot Development",
-      period: "2024 - Present",
+      company: "BayouHub",
+      title: "AI Engineer",
+      period: "January 2025 - Present",
       description:
-        "Developed an internal AI assistant using OpenAI's GPT-4 to support pharmacy staff and customer service agents, reducing ticket volume by 40%.",
+        "Developed an intelligent scraping system to enhance 30,000+ business listings for SEO purposes by automating the extraction of official emails, websites, and detailed descriptions. Implemented advanced deduplication and city/state-based filtering to avoid redundant data.",
       responsibilities: [
-        "Integrated LangChain's RetrievalQA chain with FAISS vector database for semantic search across internal documentation",
-        "Engineered automated data pipelines for document ingestion and embedding",
-        "Designed Streamlit-based UI with JWT authentication and role-based access",
-        "Deployed on AWS Lambda and EC2 for scalable, HIPAA-compliant access",
-        "Configured CloudWatch for monitoring usage metrics and system reliability",
+        "Built a browser automation agent using custom prompts and multi-LLM support (OpenAI, Gemini, Groq) to autonomously navigate websites and collect data.",
+        "Leveraged Retrieval-Augmented Generation (RAG) with Pinecone vector database and Neo4j knowledge graph to identify and reuse semantically similar business data, reducing redundant scraping across listings (e.g., Subway in multiple cities).",
+        "Integrated LangChain to manage prompt templates and structure agent responses, ensuring consistent data formatting across records.",
+        "Enabled real-time data collection with error handling and progress checkpoints, supporting resumable scraping workflows.",
+        "Output structured results in enriched CSVs, aiding in SEO optimization and content completeness.",
       ],
       tech: [
-        "OpenAI GPT-4",
+        "Browser Automation",
+        "OpenAI",
+        "Gemini",
+        "Groq",
         "LangChain",
-        "FAISS",
-        "AWS",
-        "Streamlit",
-        "Python",
+        "Pinecone",
+        "Neo4j",
+        "CSV Processing",
       ],
     },
     {
       company: "University of Louisiana",
-      title: "AI-Powered Learning Platform",
-      period: "2023 - 2024",
+      title: "Software Engineer",
+      period: "September 2023 - December 2024",
       description:
         "Built an AI summarization tool using Whisper and GPT-3.5, integrated with Moodle, reducing lecture review time by 50%.",
       responsibilities: [
@@ -44,7 +46,7 @@ const Experience = () => {
     {
       company: "Valuebound",
       title: "Full-Stack Development",
-      period: "2021 - 2022",
+      period: "September 2021 - July 2023",
       description:
         "Worked on MindTickle integration and ERP system enhancement projects, improving system performance by 50%.",
       responsibilities: [

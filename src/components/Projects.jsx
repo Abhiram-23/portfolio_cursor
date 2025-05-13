@@ -12,50 +12,11 @@ import "slick-carousel/slick/slick-theme.css";
 import webScrapping from "../assets/web_scrapping.png";
 import chatWithPdf from "../assets/chat_with_pdf.png";
 import videoStreaming from "../assets/react_video_streaming.png";
-import companyDataEnrichment from "../assets/company_data_enrichment.png";
 import drowsinessDetection from "../assets/drowsiness_detection.png";
+import SmartCoderAI from "../assets/SmartCoderAI.png";
 
 const Projects = () => {
   const projectsData = [
-    {
-      title: "AI-Powered Company Data Enrichment using LLMs",
-      description: [
-        <>
-          Developed an automated system to enrich{" "}
-          <span className="text-light-highlight dark:text-dark-highlight font-medium">
-            20,000+ company listings
-          </span>{" "}
-          with additional data using AI agents, significantly improving data
-          quality and completeness.
-        </>,
-        <>
-          Implemented{" "}
-          <span className="text-light-highlight dark:text-dark-highlight font-medium">
-            BrowserUse AI agent
-          </span>{" "}
-          for intelligent web scraping and data extraction, enabling automated
-          navigation and information gathering from company websites.
-        </>,
-        <>
-          Integrated{" "}
-          <span className="text-light-highlight dark:text-dark-highlight font-medium">
-            Google Gemini API
-          </span>{" "}
-          for natural language processing and data validation, ensuring high
-          accuracy in extracted information and maintaining data consistency.
-        </>,
-        "Automated the process of extracting company descriptions, emails, and official URLs, reducing manual effort by 90% and improving data freshness.",
-      ],
-      technologies: [
-        "BrowserUse AI",
-        "Google Gemini API",
-        "Python",
-        "Excel",
-        "LLMs",
-      ],
-      image: companyDataEnrichment,
-      link: "https://github.com/Abhiram-23/bayouhub",
-    },
     {
       title: "Automated Web Scraping and Data Integration using AWS",
       description: [
@@ -201,6 +162,39 @@ const Projects = () => {
       image: drowsinessDetection,
       link: "https://github.com/Abhiram-23/drowsiness_detection",
     },
+    {
+      title: "SmartCoder AI — LLM-Powered Code & Test Case Generator",
+      description: [
+        <>
+          Developed an interactive Streamlit-based application that generates
+          optimized code and unit test cases from natural language queries using
+          multiple OpenAI-compatible LLMs including Gemini, ChatGPT, Claude, and
+          Groq.
+        </>,
+        <>
+          Architected a modular, real-time pipeline featuring multi-step
+          reasoning, tool-based execution (code writing, command generation),
+          live logging, and JSON-based interaction aligned with OpenAI's
+          function-calling schema.
+        </>,
+        <>
+          Enabled dynamic model and provider selection (predefined or custom)
+          with secure API handling, and deployed the solution on Streamlit Cloud
+          with public access and GitHub-integrated CI support.
+        </>,
+      ],
+      technologies: [
+        "Python",
+        "Streamlit",
+        "OpenAI SDK",
+        "REST APIs",
+        "dotenv",
+        "GitHub Actions",
+      ],
+      image: SmartCoderAI,
+      link: "https://github.com/Abhiram-23/SmartCoderAI",
+      link2: "https://smartcoder-ai.streamlit.app/",
+    },
   ];
 
   const CustomPrevArrow = ({ onClick }) => (
@@ -315,19 +309,28 @@ const Projects = () => {
                           </div>
                         </div>
                         <div className="mt-auto pt-3">
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg bg-light-highlight/10 dark:bg-dark-highlight/10 text-light-highlight dark:text-dark-highlight hover:bg-light-highlight/20 dark:hover:bg-dark-highlight/20 transition-colors duration-300 text-sm"
-                          >
-                            {project.link.includes("github.com") ? (
+                          <div className="flex gap-3">
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg bg-light-highlight/10 dark:bg-dark-highlight/10 text-light-highlight dark:text-dark-highlight hover:bg-light-highlight/20 dark:hover:bg-dark-highlight/20 transition-colors duration-300 text-sm"
+                            >
                               <FaGithub className="w-4 h-4" />
-                            ) : (
-                              <FaExternalLinkAlt className="w-4 h-4" />
+                              <span className="font-medium">GitHub</span>
+                            </a>
+                            {project.link2 && (
+                              <a
+                                href={project.link2}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg bg-light-highlight/10 dark:bg-dark-highlight/10 text-light-highlight dark:text-dark-highlight hover:bg-light-highlight/20 dark:hover:bg-dark-highlight/20 transition-colors duration-300 text-sm"
+                              >
+                                <FaExternalLinkAlt className="w-4 h-4" />
+                                <span className="font-medium">Live Demo</span>
+                              </a>
                             )}
-                            <span className="font-medium">View Project</span>
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </div>
