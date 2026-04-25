@@ -67,10 +67,12 @@ const About = () => {
 
                   <div className="space-y-6 text-light-muted dark:text-dark-secondary leading-relaxed">
                     <p className="text-lg">
-                      Full-Stack Developer and AI Engineer with 4+ years of
-                      experience in healthcare, ed-tech, and enterprise
-                      solutions. Specialized in building scalable applications
-                      and implementing cutting-edge AI solutions.
+                      Software Engineer with 5+ years of experience delivering
+                      full-stack solutions and advanced GenAI/ML systems across
+                      enterprise environments. Specialized in designing and
+                      deploying multi-agent architectures, RAG systems, and
+                      autonomous workflows using Microsoft Agent Framework,
+                      LangChain, and Azure AI Foundry.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,15 +83,23 @@ const About = () => {
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            Python, React, Node.js, AWS
+                            GenAI & Agentic Frameworks (Microsoft Agent
+                            Framework, LangChain, LangGraph)
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            GPT-3.5/4, Gemini, Llama, Claude, Cursor, LangChain
+                            LLMs: GPT-4/3.5, Claude, Gemini, Groq,
+                            Retrieval-Augmented Generation (RAG)
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            Microservices, Kafka, Redis, CI/CD
+                            Vector Databases (Pinecone, Qdrant, FAISS) & Graph
+                            Databases (Neo4j)
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
+                            Full-stack: React, TypeScript, Node.js, FastAPI,
+                            AWS, Azure
                           </li>
                         </ul>
                       </div>
@@ -101,15 +111,22 @@ const About = () => {
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            40% reduction in support tickets
+                            Architected multi-agent orchestration systems (ARIA)
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            50% improvement in learning efficiency
+                            50% reduction in content review time via AI
+                            pipelines
                           </li>
                           <li className="flex items-center gap-2">
                             <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
-                            Enhanced system performance by 50%
+                            Enhanced 30,000+ business listings with intelligent
+                            scraping
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-light-highlight dark:bg-dark-highlight rounded-full"></span>
+                            30% increase in student engagement with AI-powered
+                            learning tools
                           </li>
                         </ul>
                       </div>

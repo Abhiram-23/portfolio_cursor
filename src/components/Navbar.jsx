@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
+import { FaBars, FaTimes, FaMoon, FaSun, FaDownload } from "react-icons/fa";
 import Logo from "./Logo";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
@@ -39,7 +39,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <Logo />
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -48,11 +48,22 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="text-light-primary dark:text-dark-primary hover:text-light-secondary dark:hover:text-dark-primary cursor-pointer transition-colors duration-300"
+                className="text-light-primary dark:text-dark-primary hover:text-light-secondary dark:hover:text-dark-primary cursor-pointer transition-colors duration-300 text-sm"
               >
                 {link.label}
               </Link>
             ))}
+
+            {/* Resume Download Button */}
+            <a
+              href="/resume_abhiram_paidimarri.pdf"
+              download="Abhiram_Paidimarri_Resume.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-light-secondary dark:bg-dark-primary text-white text-sm font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <FaDownload className="w-4 h-4" />
+              Resume
+            </a>
+
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg bg-light-card dark:bg-dark-card text-light-primary dark:text-dark-primary hover:bg-light-secondary dark:hover:bg-dark-primary transition-colors duration-300"
@@ -116,6 +127,15 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="/resume_abhiram_paidimarri.pdf"
+              download="Abhiram_Paidimarri_Resume.pdf"
+              className="flex items-center gap-2 px-4 py-2 bg-light-secondary dark:bg-dark-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              <FaDownload className="w-4 h-4" />
+              Download Resume
+            </a>
           </div>
         </div>
       </div>

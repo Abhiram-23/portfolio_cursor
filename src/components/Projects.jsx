@@ -195,6 +195,46 @@ const Projects = () => {
       link: "https://github.com/Abhiram-23/SmartCoderAI",
       link2: "https://smartcoder-ai.streamlit.app/",
     },
+    {
+      title: "BraedenBot — Website-Integrated AI Chatbot",
+      description: [
+        <>
+          Built an end-to-end Retrieval-Augmented Generation (RAG) pipeline that
+          crawls websites using SitemapLoader and BeautifulSoup, chunks content
+          using RecursiveCharacterTextSplitter, and embeds text via Google
+          Gemini.
+        </>,
+        <>
+          Orchestrated conversational retrieval with LangChain agents and
+          LangGraph, running on Gemini-1.5 Pro with structured JSON I/O using
+          Pydantic schemas for precise information retrieval and synthesis.
+        </>,
+        <>
+          Exposed intelligent chat interface through FastAPI backend and
+          Streamlit frontend featuring session memory, rate-limiting, and
+          observability with Prometheus + Grafana dashboards.
+        </>,
+        <>
+          Containerized with Docker and automated testing/deployment using
+          GitHub Actions, with modular architecture supporting plug-in retrieval
+          routes for Sales, HR, Quality, and Tech-Support bots.
+        </>,
+      ],
+      technologies: [
+        "Python",
+        "FastAPI",
+        "Streamlit",
+        "LangChain",
+        "LangGraph",
+        "Qdrant",
+        "Google Gemini",
+        "Docker",
+        "GitHub Actions",
+        "Prometheus",
+        "Grafana",
+      ],
+      link: "https://github.com/Abhiram-23/BraedenBot",
+    },
   ];
 
   const CustomPrevArrow = ({ onClick }) => (

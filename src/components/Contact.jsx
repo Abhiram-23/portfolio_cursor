@@ -39,7 +39,7 @@ const Contact = () => {
         "service_t5lvw63",
         "template_i5s7v2p",
         formData,
-        "RYRCyllNQMIU77ZS_"
+        "RYRCyllNQMIU77ZS_",
       )
       .then(
         (result) => {
@@ -61,7 +61,7 @@ const Contact = () => {
           console.log(error.text);
           setSubmitError("An error occurred, please try again");
           setIsSubmitting(false);
-        }
+        },
       );
   };
 
@@ -75,14 +75,14 @@ const Contact = () => {
     {
       icon: <FaPhone className="w-5 h-5" />,
       title: "Phone",
-      value: "+1 (337) 257-XXXX",
-      link: "tel:+13372551901",
+      value: "+1 (337) 554-2418",
+      link: "tel:+13375542418",
     },
     {
       icon: <FaMapMarkerAlt className="w-5 h-5" />,
       title: "Location",
-      value: "Lafayette, Louisiana, USA",
-      link: "https://maps.google.com/?q=Lafayette,Louisiana,USA",
+      value: "Bellevue, WA 98007, USA",
+      link: "https://maps.google.com/?q=Bellevue,WA,98007,USA",
     },
   ];
 

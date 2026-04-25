@@ -60,15 +60,20 @@ const Skills = () => {
       name: "Frontend Development",
       icon: <FaReact className="w-5 h-5" />,
       skills: [
-        { name: "React", level: 90, icon: <FaReact className="w-5 h-5" /> },
-        { name: "HTML5", level: 95, icon: <FaHtml5 className="w-5 h-5" /> },
-        { name: "CSS3", level: 90, icon: <FaCss3Alt className="w-5 h-5" /> },
-        { name: "JavaScript", level: 85, icon: <FaJs className="w-5 h-5" /> },
+        { name: "React.js", level: 90, icon: <FaReact className="w-5 h-5" /> },
         {
           name: "TypeScript",
-          level: 75,
+          level: 85,
           icon: <SiTypescript className="w-5 h-5" />,
         },
+        { name: "HTML5", level: 95, icon: <FaHtml5 className="w-5 h-5" /> },
+        { name: "CSS3", level: 90, icon: <FaCss3Alt className="w-5 h-5" /> },
+        {
+          name: "Tailwind CSS",
+          level: 90,
+          icon: <FaCss3Alt className="w-5 h-5" />,
+        },
+        { name: "JavaScript", level: 85, icon: <FaJs className="w-5 h-5" /> },
       ],
     },
     {
@@ -81,6 +86,16 @@ const Skills = () => {
           name: "Express.js",
           level: 75,
           icon: <SiExpress className="w-5 h-5" />,
+        },
+        {
+          name: "FastAPI",
+          level: 85,
+          icon: <FaPython className="w-5 h-5" />,
+        },
+        {
+          name: "Flask",
+          level: 80,
+          icon: <FaPython className="w-5 h-5" />,
         },
         {
           name: "RESTful APIs",
@@ -97,6 +112,11 @@ const Skills = () => {
       icon: <FaCloud className="w-5 h-5" />,
       skills: [
         { name: "AWS", level: 85, icon: <FaAws className="w-5 h-5" /> },
+        {
+          name: "Azure",
+          level: 85,
+          icon: <FaCloud className="w-5 h-5" />,
+        },
         { name: "Docker", level: 75, icon: <FaDocker className="w-5 h-5" /> },
         {
           name: "Kubernetes",
@@ -141,33 +161,78 @@ const Skills = () => {
       icon: <FaRobot className="w-5 h-5" />,
       skills: [
         {
-          name: "OpenAI GPT-4",
-          level: 85,
-          icon: <SiOpenai className="w-5 h-5" />,
-        },
-        {
-          name: "OpenAI GPT-3.5",
+          name: "GPT-4/GPT-3.5",
           level: 90,
           icon: <SiOpenai className="w-5 h-5" />,
         },
-        { name: "Claude 3", level: 80, icon: <FaRobot className="w-5 h-5" /> },
+        { name: "Claude", level: 85, icon: <FaRobot className="w-5 h-5" /> },
         {
           name: "Gemini Pro",
-          level: 75,
+          level: 85,
           icon: <FaRobot className="w-5 h-5" />,
         },
-        { name: "DeepSeek", level: 70, icon: <FaRobot className="w-5 h-5" /> },
-        { name: "LangChain", level: 85, icon: <FaRobot className="w-5 h-5" /> },
-        {
-          name: "LlamaIndex",
-          level: 75,
-          icon: <FaRobot className="w-5 h-5" />,
-        },
+        { name: "Groq", level: 80, icon: <FaRobot className="w-5 h-5" /> },
         {
           name: "Hugging Face",
           level: 80,
           icon: <SiHuggingface className="w-5 h-5" />,
         },
+      ],
+    },
+    {
+      id: "genai",
+      name: "GenAI & Agentic Frameworks",
+      icon: <FaBrain className="w-5 h-5" />,
+      skills: [
+        { name: "LangChain", level: 90, icon: <FaRobot className="w-5 h-5" /> },
+        { name: "LangGraph", level: 85, icon: <FaRobot className="w-5 h-5" /> },
+        {
+          name: "Microsoft Agent Framework",
+          level: 90,
+          icon: <FaBrain className="w-5 h-5" />,
+        },
+        {
+          name: "AutoGen",
+          level: 80,
+          icon: <FaRobot className="w-5 h-5" />,
+        },
+        {
+          name: "Crew AI",
+          level: 80,
+          icon: <FaRobot className="w-5 h-5" />,
+        },
+        {
+          name: "RAG (Retrieval-Augmented Generation)",
+          level: 90,
+          icon: <FaBrain className="w-5 h-5" />,
+        },
+        {
+          name: "Mem0 (Memory-Aware Agents)",
+          level: 85,
+          icon: <FaRobot className="w-5 h-5" />,
+        },
+      ],
+    },
+    {
+      id: "databases",
+      name: "Databases & Storage",
+      icon: <FaDatabase className="w-5 h-5" />,
+      skills: [
+        {
+          name: "PostgreSQL",
+          level: 85,
+          icon: <FaDatabase className="w-5 h-5" />,
+        },
+        { name: "MongoDB", level: 80, icon: <SiMongodb className="w-5 h-5" /> },
+        { name: "Redis", level: 85, icon: <FaDatabase className="w-5 h-5" /> },
+        { name: "Neo4j", level: 80, icon: <FaDatabase className="w-5 h-5" /> },
+        {
+          name: "Pinecone (Vector DB)",
+          level: 85,
+          icon: <FaDatabase className="w-5 h-5" />,
+        },
+        { name: "Qdrant", level: 80, icon: <FaDatabase className="w-5 h-5" /> },
+        { name: "FAISS", level: 85, icon: <FaDatabase className="w-5 h-5" /> },
       ],
     },
     {

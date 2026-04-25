@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Statistics from "./components/Statistics";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import CTA from "./components/CTA";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -35,10 +37,12 @@ function App() {
       {/* Main Content */}
       <main className="relative pt-20">
         <Hero />
+        <Statistics />
         <About />
         <Skills />
         <Experience />
         <Projects />
+        <CTA />
         <Education />
         <Contact />
       </main>
