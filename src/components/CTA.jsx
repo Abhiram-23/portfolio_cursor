@@ -14,7 +14,7 @@ const CTA = () => {
             <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
 
             <div className="relative">
-              <p className="section-kicker mb-3">// let's build</p>
+              <p className="section-kicker mb-3">{"// let's build"}</p>
               <h2 className="text-3xl font-bold text-light-primary dark:text-white md:text-4xl">
                 Ready to Work <span className="gradient-text">Together?</span>
               </h2>
