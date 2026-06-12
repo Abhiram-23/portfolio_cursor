@@ -5,40 +5,44 @@ import ScrollAnimation from "./ScrollAnimation";
 
 const CTA = () => {
   return (
-    <section className="py-12 bg-gradient-to-r from-light-secondary/10 to-light-highlight/10 dark:from-dark-primary/10 dark:to-dark-highlight/10">
+    <section className="py-16">
       <div className="container mx-auto px-6">
         <ScrollAnimation>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-light-primary dark:text-dark-primary">
-              Ready to Work Together?
-            </h2>
-            <p className="text-lg text-light-muted dark:text-dark-secondary mb-8">
-              Let's build something amazing. Explore my projects, check out my
-              resume, or reach out to discuss collaboration opportunities.
-            </p>
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-light-border bg-light-card p-10 text-center dark:border-white/10 dark:bg-white/[0.03] md:p-14">
+            {/* Glow accents */}
+            <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* Download Resume Button */}
-              <a
-                href="/resume_abhiram_paidimarri.pdf"
-                download="Abhiram_Paidimarri_Resume.pdf"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-light-secondary dark:bg-dark-primary text-white font-semibold rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <FaDownload className="w-5 h-5" />
-                Download Resume
-              </a>
+            <div className="relative">
+              <p className="section-kicker mb-3">// let's build</p>
+              <h2 className="text-3xl font-bold text-light-primary dark:text-white md:text-4xl">
+                Ready to Work <span className="gradient-text">Together?</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-light-muted dark:text-dark-secondary">
+                Explore my projects, check out my resume, or reach out to
+                discuss collaboration opportunities.
+              </p>
 
-              {/* View Projects Button */}
-              <ScrollLink
-                to="projects"
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="inline-flex items-center gap-2 px-8 py-3 border-2 border-light-secondary dark:border-dark-primary text-light-secondary dark:text-dark-primary font-semibold rounded-lg hover:bg-light-secondary/10 dark:hover:bg-dark-primary/10 transition-all duration-300 cursor-pointer"
-              >
-                View My Work
-                <FaArrowRight className="w-5 h-5" />
-              </ScrollLink>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="/resume_abhiram_paidimarri.pdf"
+                  download="Abhiram_Paidimarri_Resume.pdf"
+                  className="btn-primary"
+                >
+                  <FaDownload className="h-4 w-4" />
+                  Download Resume
+                </a>
+                <ScrollLink
+                  to="contact"
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  className="btn-ghost"
+                >
+                  Get In Touch
+                  <FaArrowRight className="h-4 w-4" />
+                </ScrollLink>
+              </div>
             </div>
           </div>
         </ScrollAnimation>

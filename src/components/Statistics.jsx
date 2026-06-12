@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaCode, FaProjectDiagram, FaLightbulb, FaUsers } from "react-icons/fa";
 import ScrollAnimation from "./ScrollAnimation";
 
@@ -9,103 +9,92 @@ const Statistics = () => {
     technologies: 0,
     clients: 0,
   });
+  const [started, setStarted] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Start counting when the section scrolls into view
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    const targets = {
-      experience: 5,
-      projects: 25,
-      technologies: 40,
-      clients: 15,
-    };
-
+    if (!started) return;
+    const targets = { experience: 5, projects: 25, technologies: 40, clients: 15 };
     const intervals = {};
     Object.keys(targets).forEach((key) => {
       intervals[key] = setInterval(() => {
         setCounters((prev) => {
           if (prev[key] < targets[key]) {
             return { ...prev, [key]: prev[key] + 1 };
-          } else {
-            clearInterval(intervals[key]);
-            return prev;
           }
+          clearInterval(intervals[key]);
+          return prev;
         });
-      }, 30);
+      }, 40);
     });
-
     return () => Object.values(intervals).forEach(clearInterval);
-  }, []);
+  }, [started]);
 
   const stats = [
     {
-      icon: <FaCode className="w-12 h-12" />,
+      icon: <FaCode className="h-6 w-6" />,
       label: "Years of Experience",
       value: counters.experience,
-      suffix: "+",
-      color: "text-blue-500",
     },
     {
-      icon: <FaProjectDiagram className="w-12 h-12" />,
+      icon: <FaProjectDiagram className="h-6 w-6" />,
       label: "Projects Completed",
       value: counters.projects,
-      suffix: "+",
-      color: "text-purple-500",
     },
     {
-      icon: <FaLightbulb className="w-12 h-12" />,
+      icon: <FaLightbulb className="h-6 w-6" />,
       label: "Technologies Mastered",
       value: counters.technologies,
-      suffix: "+",
-      color: "text-yellow-500",
     },
     {
-      icon: <FaUsers className="w-12 h-12" />,
+      icon: <FaUsers className="h-6 w-6" />,
       label: "Collaborations & Clients",
       value: counters.clients,
-      suffix: "+",
-      color: "text-green-500",
     },
   ];
 
   return (
-    <section className="py-16 bg-light-bg dark:bg-dark-bg">
+    <section ref={sectionRef} className="py-14">
       <div className="container mx-auto px-6">
         <ScrollAnimation>
-          <div className="text-center mb-12">
-            <h2 className="section-title">Career Highlights</h2>
-            <p className="text-light-muted dark:text-dark-secondary max-w-2xl mx-auto">
-              A glimpse of my professional journey and achievements
-            </p>
-          </div>
-        </ScrollAnimation>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {stats.map((stat, index) => (
-            <ScrollAnimation key={index}>
-              <div className="group relative bg-light-card dark:bg-dark-card rounded-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                {/* Gradient Border Effect */}
+          <div className="card mx-auto max-w-5xl !p-0 overflow-hidden">
+            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-light-border dark:divide-white/10">
+              {stats.map((stat, index) => (
                 <div
-                  className="absolute inset-0 rounded-lg bg-gradient-to-r from-light-secondary to-light-highlight dark:from-dark-primary dark:to-dark-highlight opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ padding: "2px" }}
+                  key={index}
+                  className="group flex flex-col items-center gap-2 px-6 py-8 text-center transition-colors duration-300 hover:bg-light-bg/60 dark:hover:bg-white/[0.03]"
                 >
-                  <div className="h-full w-full bg-light-card dark:bg-dark-card rounded-lg"></div>
-                </div>
-
-                <div className="relative">
-                  <div className={`${stat.color} mb-4 flex justify-center`}>
+                  <div className="text-accent-cyan transition-transform duration-300 group-hover:scale-110">
                     {stat.icon}
                   </div>
-                  <div className="text-4xl font-bold text-light-primary dark:text-dark-primary mb-2 group-hover:text-light-secondary dark:group-hover:text-dark-highlight transition-colors duration-300">
-                    {stat.value}
-                    {stat.suffix}
+                  <div className="font-fira-code text-4xl font-bold gradient-text">
+                    {stat.value}+
                   </div>
-                  <p className="text-light-muted dark:text-dark-secondary font-semibold">
+                  <p className="text-sm font-medium text-light-muted dark:text-dark-secondary">
                     {stat.label}
                   </p>
                 </div>
-              </div>
-            </ScrollAnimation>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

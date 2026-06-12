@@ -6,9 +6,14 @@ import {
   FaLinkedin,
   FaGithub,
   FaInstagram,
+  FaPaperPlane,
 } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import emailjs from "@emailjs/browser";
+import ScrollAnimation from "./ScrollAnimation";
+
+const inputClasses =
+  "w-full rounded-xl border border-light-border bg-light-bg px-4 py-3 text-light-primary placeholder-light-muted/60 transition-all duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:placeholder-slate-500";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,10 +28,7 @@ const Contact = () => {
   const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -35,51 +37,37 @@ const Contact = () => {
     setSubmitError("");
 
     emailjs
-      .send(
-        "service_t5lvw63",
-        "template_i5s7v2p",
-        formData,
-        "RYRCyllNQMIU77ZS_",
-      )
+      .send("service_t5lvw63", "template_i5s7v2p", formData, "RYRCyllNQMIU77ZS_")
       .then(
-        (result) => {
+        () => {
           setSubmitSuccess(true);
-          setFormData({
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-          });
+          setFormData({ name: "", email: "", subject: "", message: "" });
           setIsSubmitting(false);
-
-          // Reset success message after 5 seconds
-          setTimeout(() => {
-            setSubmitSuccess(false);
-          }, 5000);
+          setTimeout(() => setSubmitSuccess(false), 5000);
         },
         (error) => {
           console.log(error.text);
           setSubmitError("An error occurred, please try again");
           setIsSubmitting(false);
-        },
+        }
       );
   };
 
   const contactInfo = [
     {
-      icon: <FaEnvelope className="w-5 h-5" />,
+      icon: <FaEnvelope className="h-4 w-4" />,
       title: "Email",
       value: "abhirampaidimarri23@gmail.com",
       link: "mailto:abhirampaidimarri23@gmail.com",
     },
     {
-      icon: <FaPhone className="w-5 h-5" />,
+      icon: <FaPhone className="h-4 w-4" />,
       title: "Phone",
       value: "+1 (337) 554-2418",
       link: "tel:+13375542418",
     },
     {
-      icon: <FaMapMarkerAlt className="w-5 h-5" />,
+      icon: <FaMapMarkerAlt className="h-4 w-4" />,
       title: "Location",
       value: "Bellevue, WA 98007, USA",
       link: "https://maps.google.com/?q=Bellevue,WA,98007,USA",
@@ -88,68 +76,66 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <FaLinkedin className="w-5 h-5" />,
+      icon: <FaLinkedin className="h-5 w-5" />,
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/abhiram-paidimarri/",
     },
     {
-      icon: <FaGithub className="w-5 h-5" />,
+      icon: <FaGithub className="h-5 w-5" />,
       name: "GitHub",
-      url: "https://github.com/abhirampaidimarri",
+      url: "https://github.com/Abhiram-23",
     },
     {
-      icon: <SiLeetcode className="w-5 h-5" />,
+      icon: <SiLeetcode className="h-5 w-5" />,
       name: "LeetCode",
       url: "https://leetcode.com/u/abhiram_paidimarri/",
     },
     {
-      icon: <FaInstagram className="w-5 h-5" />,
+      icon: <FaInstagram className="h-5 w-5" />,
       name: "Instagram",
       url: "https://www.instagram.com/abhiram_paidimarri/",
     },
   ];
 
   return (
-    <section id="contact" className="py-10 bg-light-bg dark:bg-dark-bg">
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
-        <div className="flex justify-center mb-12">
-          <h2 className="section-title">Contact Me</h2>
-        </div>
+        <ScrollAnimation>
+          <div className="mb-12 text-center">
+            <p className="section-kicker mb-2">06. contact</p>
+            <h2 className="section-title">Get In Touch</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-light-muted dark:text-dark-secondary">
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your visions.
+            </p>
+          </div>
+        </ScrollAnimation>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="bg-light-card dark:bg-dark-card rounded-lg p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-light-primary dark:text-dark-primary mb-6">
-                  Get In Touch
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-5">
+          {/* Contact info */}
+          <ScrollAnimation className="lg:col-span-2">
+            <div className="space-y-6">
+              <div className="card">
+                <h3 className="mb-5 text-xl font-bold text-light-primary dark:text-white">
+                  Contact Info
                 </h3>
-                <p className="text-light-muted dark:text-dark-secondary mb-6">
-                  I'm always open to discussing new projects, creative ideas, or
-                  opportunities to be part of your visions.
-                </p>
-
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {contactInfo.map((info, index) => (
                     <a
                       key={index}
                       href={info.link}
                       target={info.link.startsWith("http") ? "_blank" : "_self"}
-                      rel={
-                        info.link.startsWith("http")
-                          ? "noopener noreferrer"
-                          : ""
-                      }
-                      className="flex items-start group"
+                      rel={info.link.startsWith("http") ? "noopener noreferrer" : ""}
+                      className="group flex items-center gap-4"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-light-secondary dark:bg-dark-primary flex items-center justify-center text-light-bg dark:text-dark-bg mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-accent-cyan/30 bg-accent-cyan/10 text-accent-cyan transition-transform duration-300 group-hover:scale-110">
                         {info.icon}
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-light-primary dark:text-dark-primary">
+                        <p className="font-fira-code text-xs text-light-muted dark:text-slate-500">
                           {info.title}
-                        </h4>
-                        <p className="text-light-muted dark:text-dark-secondary group-hover:text-light-secondary dark:group-hover:text-dark-primary transition-colors duration-300">
+                        </p>
+                        <p className="text-sm font-medium text-light-primary transition-colors group-hover:text-accent-cyan dark:text-slate-200">
                           {info.value}
                         </p>
                       </div>
@@ -158,18 +144,18 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-light-card dark:bg-dark-card rounded-lg p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-light-primary dark:text-dark-primary mb-6">
+              <div className="card">
+                <h3 className="mb-5 text-xl font-bold text-light-primary dark:text-white">
                   Connect With Me
                 </h3>
-                <div className="flex space-x-4">
+                <div className="flex gap-3">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-light-bg dark:bg-dark-bg flex items-center justify-center text-light-primary dark:text-dark-primary hover:bg-light-secondary dark:hover:bg-dark-primary hover:text-light-bg dark:hover:text-dark-bg transition-all duration-300 transform hover:scale-110"
+                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-light-border text-light-muted transition-all duration-300 hover:-translate-y-1 hover:border-accent-cyan hover:text-accent-cyan dark:border-white/10 dark:text-dark-secondary"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -178,100 +164,70 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+          </ScrollAnimation>
 
-            {/* Contact Form */}
-            <div className="bg-light-card dark:bg-dark-card rounded-lg p-6 shadow-lg">
-              <h3 className="text-2xl font-bold text-light-primary dark:text-dark-primary mb-6">
+          {/* Form */}
+          <ScrollAnimation className="lg:col-span-3">
+            <div className="card h-full">
+              <h3 className="mb-6 text-xl font-bold text-light-primary dark:text-white">
                 Send Me a Message
               </h3>
 
               {submitSuccess ? (
-                <div className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 p-4 rounded-lg mb-6">
+                <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-green-600 dark:text-green-400">
                   <p className="font-medium">
                     Thank you for your message! I'll get back to you soon.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative">
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-light-primary dark:text-dark-primary mb-1"
-                      >
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div className="relative">
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-light-primary dark:text-dark-primary mb-1"
-                      >
-                        Your Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-light-primary dark:text-dark-primary mb-1"
-                    >
-                      Subject
-                    </label>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid gap-5 md:grid-cols-2">
                     <input
                       type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300"
-                      placeholder="How can I help you?"
+                      className={inputClasses}
+                      placeholder="Your name"
+                      aria-label="Your name"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                      placeholder="Your email"
+                      aria-label="Your email"
                     />
                   </div>
 
-                  <div className="relative">
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-light-primary dark:text-dark-primary mb-1"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="5"
-                      className="w-full px-4 py-3 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-primary focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder="Your message here..."
-                    ></textarea>
-                  </div>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className={inputClasses}
+                    placeholder="Subject"
+                    aria-label="Subject"
+                  />
+
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows="6"
+                    className={`${inputClasses} resize-none`}
+                    placeholder="Your message..."
+                    aria-label="Your message"
+                  />
 
                   {submitError && (
-                    <div className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 p-4 rounded-lg">
+                    <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-red-600 dark:text-red-400">
                       <p>{submitError}</p>
                     </div>
                   )}
@@ -279,18 +235,17 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full py-3 px-6 rounded-lg font-medium text-light-bg dark:text-dark-bg transition-all duration-300 ${
-                      isSubmitting
-                        ? "bg-light-muted dark:bg-dark-secondary cursor-not-allowed"
-                        : "bg-light-secondary dark:bg-dark-primary hover:bg-light-highlight dark:hover:bg-dark-highlight transform hover:scale-105"
+                    className={`btn-primary w-full justify-center ${
+                      isSubmitting ? "cursor-not-allowed opacity-60" : ""
                     }`}
                   >
+                    <FaPaperPlane className="h-4 w-4" />
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               )}
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>
